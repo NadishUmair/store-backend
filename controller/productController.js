@@ -110,7 +110,7 @@ exports.GetAllProducts = async (req, res) => {
 
     const productsWithImageUrls = products.map((product) => ({
       ...product.toObject(),
-      productImg: `http://localhost:4000/${product.productImg}`,
+      productImg: `https://store-backend-umber.vercel.app//${product.productImg}`,
     }));
 
     res.status(200).json({
