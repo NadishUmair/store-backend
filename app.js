@@ -58,4 +58,6 @@ app.listen(PORT,()=>{
 
 })
 
-module.exports.handler = serverless(app);
+module.exports = (req, res) => {
+  app(req, res); // This allows Express to handle the request
+};
