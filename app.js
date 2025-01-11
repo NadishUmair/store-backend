@@ -11,10 +11,20 @@ app.use(express.json());
 
 // CORS settings (adjust allowed origins as needed)
 const allowedOrigins = ['http://localhost:3000', 'http://192.168.56.1:3000'];
+
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS')); 
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],  
+  credentials: true,  
 }));
+
 
 // Static file serving for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
