@@ -47,10 +47,12 @@ app.use("/api/product",ProductRoutes)
 app.use("/api/admin",AdminRoutes)
 
 
-app.use("/",()=>{
-    res.send("app is running")
-})
+app.get("/", (req, res) => {
+    res.send("App is running");
+  });
+  
 
 app.listen(PORT,()=>{
     console.log("app is running at port",PORT);
+
 })
