@@ -58,6 +58,13 @@ app.listen(PORT,()=>{
 
 })
 
-module.exports = (req, res) => {
-  app(req, res); // This allows Express to handle the request
-};
+app.use("/test", (req, res) => {
+  if (mongoose.connection.readyState === 1) { // 1 means connected
+    res.send("App is running and Database is connected!");
+  } else if (mongoose.connection.readyState === 2) {
+    res.send("App is running and Database is connecting...");
+  } else {
+    res.status(500).send("App is running but Database is not connected.");
+  }
+});
+
