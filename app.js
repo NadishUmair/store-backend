@@ -36,6 +36,7 @@ app.use(cors({
   credentials: true,
 }));
 
+//new commit
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
