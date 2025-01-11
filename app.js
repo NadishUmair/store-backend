@@ -57,3 +57,5 @@ app.listen(PORT,()=>{
     console.log("app is running at port",PORT);
 
 })
+
+module.exports.handler = serverless(app);
