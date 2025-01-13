@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 // const mongo_url = "mongodb+srv://shopcirclestore:nD4lMeKCvlwGO0rS@cluster0.h1iet.mongodb.net/store";
 const mongo_url = "mongodb+srv://shopcirclestore:nD4lMeKCvlwGO0rS@cluster0.h1iet.mongodb.net/?retryWrites=true&w=majority&appName=store";
 
+
 const ConnectDb = () => {
   mongoose.connect(mongo_url, {
     serverSelectionTimeoutMS: 5000, 
