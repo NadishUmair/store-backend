@@ -7,24 +7,23 @@ const ConnectDb = require("./config/db");
 const path = require("path");
 const PORT = 4000;
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 ConnectDb();
-// CORS settings (adjust allowed origins as needed)
-// const allowedOrigins = ['http://localhost:3000', 'http://192.168.56.1:3000'];
+CORS settings (adjust allowed origins as needed)
+const allowedOrigins = ['http://localhost:3000', 'http://192.168.56.1:3000'];
 
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS')); 
-//     }
-//   },
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],  
-//   credentials: true,  
-// }));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS')); 
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],  
+}));
 
 
 
