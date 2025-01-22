@@ -25,7 +25,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],  
 }));
 
-
+app.use(cors(corsOptions));
 
 
 // Static file serving for uploads
