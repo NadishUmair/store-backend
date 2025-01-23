@@ -7,7 +7,7 @@ const ConnectDb = require("./config/db");
 const path = require("path");
 const PORT = 4000;
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 ConnectDb();
 // CORS settings (adjust allowed origins as needed)
