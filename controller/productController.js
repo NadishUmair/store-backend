@@ -97,6 +97,7 @@ exports.UpdateProduct = async (req, res) => {
 
 
 exports.GetAllProducts = async (req, res) => {
+  console.log("hy");
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
